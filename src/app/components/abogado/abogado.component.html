@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">colegiatura</th>
+                    <th scope="col">dni</th>
+                    <th scope="col">nombres</th>
+                    <th scope="col">apellidos</th>
+                    <th scope="col">especialidad</th>
+                    <th scope="col">telefono</th>
+                    <th scope="col">herramientas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let abogado of abogadolist, let i =index">
+                    <th>{{abogado._id}}</th>
+                    <th>{{abogado.colegiatura}}</th>
+                    <th>{{abogado.dni}}</th>
+                    <th>{{abogado.nombres}}</th>
+                    <th>{{abogado.apellidos}}</th>
+                    <th>{{abogado.especialidad}}</th>
+                    <th>{{abogado.telefono}}</th>
+                    <th>
+                        <button type="button" class="btn btn-success" (click)="actualizar(abogado)"> actuazlizar</button> <button type="button" class="btn btn-danger" (click)="borrarAbogodado(abogado,i)"> eliminar</button>
+                    </th>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+    </div>
+    <div class="col-12">
+        <form (ngSubmit)="crearAbogado( f )" #f="ngForm">
+            <div class="form-group">
+                <label for="exampleInputEmail1">id</label>
+                <input disabled type="text " class="form-control " [(ngModel)]="abogado._id" name="_id" placeholder="_id ">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Colegiatura</label>
+                <input type="text " class="form-control " [(ngModel)]="abogado.colegiatura" name="colegiatura" placeholder="colegiatura " required>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">dni</label>
+                <input type="text " class="form-control " [(ngModel)]="abogado.dni" name="dni" placeholder="dni ">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">nombres</label>
+                <input type="text " class="form-control " [(ngModel)]="abogado.nombres" name="nombres" placeholder="nombres ">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">apellidos</label>
+                <input type="text " class="form-control " [(ngModel)]="abogado.apellidos" name="apellidos" placeholder="apellidos ">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">especialidad</label>
+                <input type="text " class="form-control " [(ngModel)]="abogado.especialidad" name="especialidad" placeholder="especialidad ">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">telefono</label>
+                <input type="number " class="form-control " [(ngModel)]="abogado.telefono" name="telefono" placeholder="telefono ">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

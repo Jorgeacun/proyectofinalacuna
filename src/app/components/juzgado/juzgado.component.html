@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">nombre</th>
+                    <th scope="col">direccion</th>
+                    <th scope="col">tipo</th>
+                    <th scope="col">descripcion</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let juzgado of juzgadoList, let i =index">
+                    <th>{{juzgado._id}}</th>
+                    <th>{{juzgado.nombre}}</th>
+                    <th>{{juzgado.direccion}}</th>
+                    <th>{{juzgado.tipo}}</th>
+                    <th>{{juzgado.descripcion}}</th>
+                    <th>
+                        <button type="button" class="btn btn-danger" (click)="borrarJuzgado(juzgado,i)"> eliminar</button>
+                    </th>
+                    <th>
+                        <button type="button" class="btn btn-success" (click)="actualizar(juzgado)"> actuazlizar</button>
+                    </th>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+    </div>
+    <div class="col-12">
+        <form (ngSubmit)="crearjuzgadp( f )" #f="ngForm">
+            <div class="form-group">
+                <label for="exampleInputEmail1">id</label>
+                <input disabled type="text " class="form-control " [(ngModel)]="juzgado._id" name="_id" placeholder="_id ">
+            </div>
+            <div class="form-group">
+                <label>nombre</label>
+                <input type="text " class="form-control " [(ngModel)]="juzgado.nombre" name="nombre" placeholder="nombre">
+            </div>
+            <div class="form-group">
+                <label>direccion</label>
+                <input type="text " class="form-control " [(ngModel)]="juzgado.direccion" name="direccion" placeholder="direccion">
+            </div>
+            <div class="form-group">
+                <label>tipo</label>
+                <input type="text " class="form-control " [(ngModel)]="juzgado.tipo" name="tipo" placeholder="tipo">
+            </div>
+            <div class="form-group">
+                <label>descripcion</label>
+                <input type="text " class="form-control " [(ngModel)]="juzgado.descripcion" name="descripcion" placeholder="descripcion">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
